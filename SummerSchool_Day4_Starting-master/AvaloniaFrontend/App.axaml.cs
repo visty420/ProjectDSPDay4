@@ -31,10 +31,13 @@ public partial class App : Application
         //TODO #12
         //Add AcquisitionPage and AcquisitionViewModel to serviceCollection as Singletons
         //Also, register the AcquisitionPage 
+        serviceCollection.AddSingleton<AcquisitionPage>();
+        serviceCollection.AddSingleton<AcquisitionViewModel>();
 
         PageService pageService = serviceCollection.GetService<PageService>();
         pageService.RegisterPage<GeneratorPage, GeneratorViewModel>("Generator", Material.Icons.MaterialIconKind.SineWave.ToString());
         pageService.RegisterPage<HomePage, HomeViewModel>("Home", Material.Icons.MaterialIconKind.Home.ToString(), showSidePanel: false);
+        pageService.RegisterPage<AcquisitionPage, AcquisitionViewModel>("Aquisition page", Material.Icons.MaterialIconKind.Waveform.ToString(), showSidePanel: false);
 
         NavigationService navigationService = serviceCollection.GetService<NavigationService>();
         navigationService.CurrentPageType = typeof(HomePage);

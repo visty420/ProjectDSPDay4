@@ -10,7 +10,7 @@
 
 namespace AudioEngine
 {
-	enum class AudioStreategyType
+	enum class AudioStrategyType
 	{
 		Duplex = 0,
 		Loopback,
@@ -30,7 +30,7 @@ namespace AudioEngine
 
 		const std::vector<float>& GetBufferData() noexcept;
 
-		void Start(AudioStreategyType strategyType = AudioStreategyType::Duplex);
+		void Start(AudioStrategyType strategyType = AudioStrategyType::Duplex);
 		void Stop();
 
 	private:

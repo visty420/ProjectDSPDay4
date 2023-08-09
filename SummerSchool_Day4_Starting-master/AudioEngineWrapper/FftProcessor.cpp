@@ -17,3 +17,17 @@ array<double>^ AudioEngineWrapper::FftProcessor::GetMagnitude(SignalGenerator^ g
 
     return result;
 }
+
+array<double>^ AudioEngineWrapper::FftProcessor::GetMagnitude(AudioEngineService^ service)
+{
+    const auto data = service->GetLastBuffer();
+    const char* error;
+
+    array<double>^ result = gcnew array<double>(data.size() / 2);
+    if (!AudioEngine::FFTProcessor::GetFFTMagnitudeWithBuffer(data, result, error))
+    {
+        throw gcnew System::Exception(gcnew System::String(error));
+    }
+
+    return result;
+}

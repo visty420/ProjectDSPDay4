@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SignalGeneratorWrapper.h"
+#include "AudioEngineWrapper.h"
 
 namespace AudioEngineWrapper
 {
@@ -9,6 +10,7 @@ namespace AudioEngineWrapper
   public:
 
     array<double>^ GetMagnitude(SignalGenerator^ generator);
+    array<double>^ GetMagnitude(AudioEngineService^ service);
   };
 }
 

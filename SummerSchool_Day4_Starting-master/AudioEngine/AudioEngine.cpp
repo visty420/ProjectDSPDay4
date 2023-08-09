@@ -58,11 +58,11 @@ namespace AudioEngine
 		return result;
 	}
 
-	void FancyAudioEngine::Start(AudioStreategyType strategyType)
+	void FancyAudioEngine::Start(AudioStrategyType strategyType)
 	{
 		switch (strategyType)
 		{
-		case AudioEngine::AudioStreategyType::Duplex:
+		case AudioEngine::AudioStrategyType::Duplex:
 			m_strategy.reset(new DuplexStrategy());
 			break;
 		
@@ -72,7 +72,7 @@ namespace AudioEngine
 		AudioParameters params = { nullptr, nullptr, ma_format_f32, m_sampleRate, 1, data_callback };
 		m_buffers.clear();
 		
-		if (m_strategy->Init(params))
+		if (!m_strategy->Init(params))
 		{
 			throw std::exception("Strategy not found!");
 		}

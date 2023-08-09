@@ -19,6 +19,27 @@
 	</Design.DataContext>
 	<!--TODO #11
 	Add a plot and two buttons: Start and Stop-->
-	
-	
+	<Grid RowDefinitions="1*,4*, 4*" ColumnDefinitions="* * *">
+
+		<Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Command="{Binding StartCommand}">
+			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+				<icons:MaterialIcon Kind="Play" Width="20" Height="20" />
+				<TextBlock Text="Start"></TextBlock>
+			</StackPanel>
+		</Button>
+
+		<Button Command="{Binding StopCommand}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.Column="1">
+			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+				<icons:MaterialIcon Kind="Stop" Width="20" Height="20" />
+				<TextBlock Text="Stop"></TextBlock>
+			</StackPanel>
+		</Button>
+
+		<ComboBox SelectedItem="{Binding SelectedStrategy}" Items="{Binding AudioStrategyTypes}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.Column="2" VerticalAlignment="Center"/>
+
+		<views:PlotView Grid.Row="1" Grid.ColumnSpan="3" DataContext="{Binding TimePlot}"/>
+		
+		<views:PlotView Grid.Row="2" Grid.ColumnSpan="3" DataContext="{Binding FFTPlot}"/>
+	</Grid>
+
 </UserControl>
