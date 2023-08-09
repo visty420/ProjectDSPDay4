@@ -35,7 +35,7 @@
 			</StackPanel>
 		</Button>
 
-		<ComboBox SelectedItem="{Binding SelectedStrategy}" Items="{Binding AudioStrategyTypes}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.Column="2" VerticalAlignment="Center"/>
+		<ComboBox SelectedItem="{Binding SelectedStrategy}" IsEnabled="{Binding !CanAcquire}" Items="{Binding AudioStrategyTypes}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Grid.Column="2" VerticalAlignment="Center"/>
 
 		<views:PlotView Grid.Row="1" Grid.ColumnSpan="3" DataContext="{Binding TimePlot}"/>
 		
