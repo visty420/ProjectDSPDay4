@@ -120,7 +120,7 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>if exist "$(SolutionDir)AvaloniaFrontend\bin\Debug\net6.0"  (xcopy /e /y "$(OutDir)\$(ProjectName).dll" "$(SolutionDir)AvaloniaFrontend\bin\Debug\net6.0")</Command>
+      <Command>if exist "$(SolutionDir)AvaloniaFrontend\bin\Debug\net6.0"  (xcopy /e /y "$(OutDir)\*.dll" "$(SolutionDir)AvaloniaFrontend\bin\Debug\net6.0")</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -166,6 +166,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="DuplexStrategy.cpp" />
     <ClCompile Include="FFTProcessor.cpp" />
+    <ClCompile Include="IAudioStrategy.cpp" />
     <ClCompile Include="miniaudio.c" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

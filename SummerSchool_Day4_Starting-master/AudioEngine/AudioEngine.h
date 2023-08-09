@@ -24,9 +24,14 @@ namespace AudioEngine
 		//Add constructor
 		//Add Start and Stop methods
 
+		FancyAudioEngine(size_t sampleRate = 44100, size_t maxBufferSize =~ 0);
+
 		void ClearBuffer();
 
 		const std::vector<float>& GetBufferData() noexcept;
+
+		void Start(AudioStreategyType strategyType = AudioStreategyType::Duplex);
+		void Stop();
 
 	private:
 		ma_device* m_device;
